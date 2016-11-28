@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xmlns:tx="http://www.springframework.org/schema/tx" 
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:task="http://www.springframework.org/schema/task"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+      http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">  
+
+   <!-- 扫描base-package下的文件，并注册bean，同时激活已注册的bean，就是扫描那些用@Service,@component,@Repositiry标识的那些类 -->  
+   <context:component-scan base-package="com.szc" />  
+</beans>  
+
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+ 
+        <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+                <property name="driverClass">
+                        <value>${driverClass}</value>
+                </property>
+                <property name="jdbcUrl">
+                        <value>${jdbcUrl}</value>
+                </property>
+                <property name="user">
+                        <value>${user}</value>
+                </property>
+                <property name="password">
+                        <value>${password}</value>
+                </property>
+        </bean>
+   
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+ 		
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+            </props>  
+        </property> 
+        
+        包扫描的方式加载注解类(推荐)  
+        <property name="packagesToScan">  
+            <list>  
+                <value>com.szc.users.*</value>
+            </list>  
+        </property>  
+    </bean>
+   
+        <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+                <property name="sessionFactory" ref="sessionFactory"/>  
+        </bean>
+ 
+        <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+                <property name="locations">
+                        <list>
+                                <value>classpath:com/szc/resources/jdbc.properties</value>
+                        </list>
+                </property> 
+        </bean>
+       
+        <bean id="userBean" class="com.szc.users.beans.UserBean">
+            <property name="sessionFactory">
+                <ref bean="sessionFactory"/>
+            </property>
+        </bean>
+
+        <bean id="usersdao" class="com.szc.users.dao.Impl.UserDaoImpl">
+            <property name="sessionFactory">
+                <ref bean="sessionFactory"/>
+            </property>
+        </bean>
+
+        <bean id="services" class="com.szc.users.service.Impl.UserServiceImpl">
+                <property name="usersdao" ref="usersdao"></property>
+        </bean>
+        
+</beans> -->
