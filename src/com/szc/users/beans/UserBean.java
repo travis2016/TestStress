@@ -1,4 +1,4 @@
-package szc.users.beans;
+package com.szc.users.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

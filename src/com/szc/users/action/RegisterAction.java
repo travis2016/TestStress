@@ -1,4 +1,4 @@
-package szc.users.action;
+package com.szc.users.action;
 
 import java.io.PrintWriter;
 import java.util.Map;

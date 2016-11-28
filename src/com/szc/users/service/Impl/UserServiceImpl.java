@@ -1,4 +1,4 @@
-package szc.users.service.Impl;
+package com.szc.users.service.Impl;
 
 import java.util.List;
 

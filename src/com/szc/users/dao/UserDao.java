@@ -1,4 +1,4 @@
-package szc.users.dao;
+package com.szc.users.dao;
 
 import java.util.List;
 

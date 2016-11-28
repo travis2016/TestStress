@@ -1,4 +1,4 @@
-package szc.users.dao.Impl;
+package com.szc.users.dao.Impl;
 
 import javax.annotation.Resource;
 

@@ -1,4 +1,4 @@
-package szc.interceptor;
+package com.szc.interceptor;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class AuthInterceptor implements Interceptor{
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		String result = "";
+		//String result = "";
 		Map<String, Object> session = invocation.getInvocationContext().getContext().getSession();
 		if(session.get("user")!=null){
 			System.out.println("有权限"+session.get("user"));

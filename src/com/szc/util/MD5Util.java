@@ -1,4 +1,4 @@
-package szc.util;
+package com.szc.util;
 
 import java.security.MessageDigest;
 
