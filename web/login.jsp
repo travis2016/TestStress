@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <meta http-equiv="cache-control" content="no-cache">
 	  <meta http-equiv="expires" content="0">    
 	  <script type="text/javascript" src="js/userlogin.js"></script>
-      <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+      <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
       <script type="text/javascript" src="js/jquery.json.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
