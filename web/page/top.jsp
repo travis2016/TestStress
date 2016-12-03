@@ -13,7 +13,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 	  <meta http-equiv="pragma" content="no-cache">
 	  <meta http-equiv="cache-control" content="no-cache">
 	  <meta http-equiv="expires" content="0">    
-	  <script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+	  <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
       <script type="text/javascript" src="../js/bootstrap.min.js"></script>
       <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script> 
       <script type="text/javascript" src="../js/mainJs/main.js"></script>
