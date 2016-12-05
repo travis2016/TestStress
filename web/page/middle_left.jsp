@@ -10,7 +10,16 @@
     <html>
     <head>
         <title>列表树页</title>
-
+        <script src="../js/jquery-2.2.2.min.js" type="text/javascript"></script>
+        <link href="../css/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+        <script src="../js/ligerUI/core/base.js" type="text/javascript"></script>
+        <script src="../js/ligerUI/plugins/ligerTree.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function ()
+            {
+                $("#tree1").ligerTree({ treeLine:false });
+            });
+        </script>
     </head>
     <body style="padding:10px">
     <!--带复选框和Icon-->
