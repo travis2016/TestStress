@@ -11,39 +11,89 @@
     <head>
         <title>列表树页</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/tree/default.css">
         <script src="../js/jquery-2.2.2.min.js" type="text/javascript"></script>
-        <link href="../css/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
-        <script src="../js/ligerUI/core/base.js" type="text/javascript"></script>
-        <script src="../js/ligerUI/plugins/ligerTree.js" type="text/javascript"></script>
+        <script src="../js/bootstrap-treeview.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(function ()
-            {
-                $("#tree1").ligerTree({ treeLine:false });
+            function buildDomTree() {
+                var data = [
+                    {
+                        text: 'Parent 1',
+                        href: '#parent1',
+                        tags: ['4'],
+                        nodes: [
+                            {
+                                text: 'Child 1',
+                                href: '#child1',
+                                tags: ['2'],
+                                nodes: [
+                                    {
+                                        text: 'Grandchild 1',
+                                        href: '#grandchild1',
+                                        tags: ['0']
+                                    },
+                                    {
+                                        text: 'Grandchild 2',
+                                        href: '#grandchild2',
+                                        tags: ['0']
+                                    }
+                                ]
+                            },
+                            {
+                                text: 'Child 2',
+                                href: '#child2',
+                                tags: ['0']
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Parent 2',
+                        href: '#parent2',
+                        tags: ['0']
+                    },
+                    {
+                        text: 'Parent 3',
+                        href: '#parent3',
+                        tags: ['0']
+                    },
+                    {
+                        text: 'Parent 4',
+                        href: '#parent4',
+                        tags: ['0']
+                    },
+                    {
+                        text: 'Parent 5',
+                        href: '#parent5'  ,
+                        tags: ['0']
+                    }
+                ];
+
+                return data;
+            }
+
+            $(function(){
+
+                var options = {
+                    color: "#428bca",
+                    expandIcon: 'glyphicon glyphicon-chevron-right',
+                    collapseIcon: 'glyphicon glyphicon-chevron-down',
+                    nodeIcon: 'glyphicon glyphicon-bookmark',
+                    data: buildDomTree()
+                };
+
+                $('#treeview').treeview(options);
             });
         </script>
     </head>
     <body style="padding:10px">
     <!--带复选框和Icon-->
-    <div  style="width:200px; height:300px; margin:10px; float:left; border:1px solid #ccc;overflow:auto;">
-        <ul id="tree1">
-            <li isexpand="false">
-                <span><i class="icon-folder-open"></i>节点1</span>
-                <ul>
-                    <li isexpand="false">
-                        <span><i class="icon-folder-open"></i>节点1.1</span>
-                        <ul>
-                            <li><span><i class="icon-folder-open"></i>节点1.1.2</span></li>
-                            <li><span><i class="icon-folder-open"></i>节点1.1.2</span></li>
-                        </ul>
-                    </li>
-                    <li><span><i class="icon-folder-open"></i>节点1.2</span></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div style="display:none">
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Custom Icons</h2>
+                <div id="treeview" class=""></div>
+            </div>
+        </div>
     </div>
     </body>
 </html>
