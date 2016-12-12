@@ -7,6 +7,22 @@
 	height: 100%;
 }
 
+/*用于设置顶部Iframe的大小*/
+#iframetop{
+	height: 120px;
+}
+
+/*用于设置主页左部css*/
+#middle_left{
+	width: 100%;
+	height: 100%;
+	float: left;
+	position:relative;
+}
+#iframeleft{
+    float:left;
+	height: auto;
+}
 
 /*
 用户主页面的css

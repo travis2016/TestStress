@@ -64,7 +64,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
                        </li>
 	           	  	</ul>
 	           	  </li>
-	           </ul> 
+	           </ul>
 	        </div>
 	        </nav>
 	        </div>

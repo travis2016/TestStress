@@ -31,8 +31,8 @@ String uname=(String)request.getSession().getAttribute("loginusername");
       <link rel="stylesheet" href="css/style.css">
       <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/metisMenu/metisMenu.min.js"></script> 
-      <script type="text/javascript" src="js/mainJs/main.js"></script>  
+      <script type="text/javascript" src="js/metisMenu/metisMenu.min.js"></script>
+      <script type="text/javascript" src="js/mainJs/main.js"></script>
 	  
 </head>
 <body>
@@ -40,8 +40,8 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 		<iframe src="<%=basePath%>/page/top.jsp"  id="iframetop" name="iframetop" frameborder="0" scrolling="no" width="100%"></iframe>
 	</div>
 	<div id="main_middle" name="main_middle">
-		<div style="float:left">
-			<iframe src="<%=basePath%>/page/middle_left.jsp"  id="iframeleft" name="iframeleft" frameborder="0" scrolling="no" width="20%"></iframe>
+		<div style="float:left" id="middle_left" name="middle_left" >
+			<iframe src="<%=basePath%>/page/middle_left.jsp"  id="iframeleft" name="iframeleft" frameborder="0" scrolling="no" ></iframe>
 		</div>
 		<div style="float:right">
 		</div>

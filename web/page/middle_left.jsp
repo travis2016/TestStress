@@ -11,7 +11,6 @@
     <head>
         <title>列表树页</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/tree/default.css">
         <script src="../js/jquery-2.2.2.min.js" type="text/javascript"></script>
         <script src="../js/bootstrap-treeview.min.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -90,7 +89,6 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h2>Custom Icons</h2>
                 <div id="treeview" class=""></div>
             </div>
         </div>
