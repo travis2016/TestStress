@@ -43,30 +43,6 @@ a,ul,li,i{
 	margin-right:15px;
 }
 
-
-/*
-左侧导航栏样式
-*/
-.sidebar{
-	z-index:1;
-	position:absolute;
-	width:250px;
-	margin-top:51px;
-}
-
-.sidebar .sidebar-search {
-    padding: 15px;
-}
-
-.sidebar ul li {
-    border-bottom: 1px solid #e7e7e7;
-}
-
-.sidebar .nav-second-level li a{
-	padding-left:37px;
-}
-
-
 /*
 页面规范
 .pageNorm .pageframe{
@@ -86,5 +62,5 @@ a,ul,li,i{
 }
 
 .main_middle{
-
+    margin-top:-80px;
 }

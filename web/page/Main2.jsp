@@ -33,18 +33,31 @@ String uname=(String)request.getSession().getAttribute("loginusername");
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/metisMenu/metisMenu.min.js"></script>
       <script type="text/javascript" src="js/mainJs/main.js"></script>
-	  
+	  <script language="javascript">
+		  function changeFrameHeight(){
+			  var ifm= document.getElementById("iframeleft");
+			  try{
+				  alert('111');
+				  var bHeight = ifm.contentWindow.document.body.scrollHeight;
+				  var dHeight = ifm.contentWindow.document.documentElement.scrollHeight;
+				  var height = Math.max(bHeight, dHeight);
+				  ifm.height = height;
+			  }catch (ex){}
+		  }
+		  window.setInterval("reinitIframe()", 200);
+
+	  </script>
 </head>
 <body>
 	<div id="mainTopdiv" name="mainTopdiv">
 		<iframe src="<%=basePath%>/page/top.jsp"  id="iframetop" name="iframetop" frameborder="0" scrolling="no" width="100%"></iframe>
 	</div>
-	<div id="main_middle" name="main_middle">
+	<div id="main_middle" name="main_middle" class="main_middle">
 		<div style="float:left" id="middle_left" name="middle_left" >
-			<iframe src="<%=basePath%>/page/middle_left.jsp"  id="iframeleft" name="iframeleft" frameborder="0" scrolling="no" ></iframe>
+			<iframe src="<%=basePath%>/page/middle_left.jsp"  id="iframeleft" name="iframeleft" frameborder="0" scrolling="no" onload="changeFrameHeight()"></iframe>
 		</div>
-		<div style="float:right">
-		</div>
+		<%--<div style="float:right">
+		</div>--%>
 	</div>
 </body>
 </html>

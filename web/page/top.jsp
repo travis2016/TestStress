@@ -17,6 +17,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
       <script type="text/javascript" src="../js/bootstrap.min.js"></script>
       <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script> 
       <script type="text/javascript" src="../js/mainJs/main.js"></script>
+      <link rel="stylesheet" href="../css/Mycss/Main.css" >
       <script>
 		window.onload=
 		function(){
@@ -49,7 +50,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 	           	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" >
 	           	  		<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
 	           	  	</a>
-	           	  	<ul class="dropdown-menu">
+	           	  	<ul class="dropdown-menu" style="margin-top: -30px;margin-right: 50px;">
 	           	  	  <li>
 	           	  	   <a href="<%=basePath %>userMain.jsp">
 	           	  	      <i class="fa fa-user fa-fw"></i>
