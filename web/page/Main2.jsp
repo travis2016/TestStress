@@ -37,7 +37,6 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 		  function changeFrameHeight(){
 			  var ifm= document.getElementById("iframeleft");
 			  try{
-				  alert('111');
 				  var bHeight = ifm.contentWindow.document.body.scrollHeight;
 				  var dHeight = ifm.contentWindow.document.documentElement.scrollHeight;
 				  var height = Math.max(bHeight, dHeight);
