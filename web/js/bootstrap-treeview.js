@@ -50,13 +50,13 @@
 		searchResultColor: '#D9534F',
 		searchResultBackColor: undefined, //'#FFFFFF',
 
-		enableLinks: false,
+		enableLinks: true,
 		highlightSelected: true,
 		highlightSearchResults: true,
 		showBorder: true,
 		showIcon: true,
 		showCheckbox: false,
-		showTags: false,
+		showTags: true,
 		multiSelect: false,
 
 		// Event handlers

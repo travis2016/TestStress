@@ -23,10 +23,10 @@
                         nodes: [
                             {
                                 text: 'Child 1',
-                                href: '#child1',
                                 tags: ['2'],
                                 nodes: [
                                     {
+                                        showTags:true,
                                         text: 'Grandchild 1',
                                         href: '#grandchild1',
                                         tags: ['0']
@@ -81,6 +81,19 @@
                 };
 
                 $('#treeview').treeview(options);
+
+                $('#treeview').on('nodeSelected', function(event, data) {
+                    // clickNode(event, data)
+                    if(data.href != undefined){
+                        alert(data.href);
+                        alert(data.text);
+                        alert(data.nodeId);
+                        window.parent.document.getElementById("iframeright").src="<%=basePath%>/page/middle_right.jsp";
+
+                        var arr = $('#treeview').treeview('getSelected');
+                        alert(JSON.stringify(arr));
+                    }
+                });
             });
         </script>
     </head>

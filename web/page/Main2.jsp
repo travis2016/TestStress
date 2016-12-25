@@ -55,8 +55,9 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 		<div style="float:left" id="middle_left" name="middle_left" >
 			<iframe src="<%=basePath%>/page/middle_left.jsp"  id="iframeleft" name="iframeleft" frameborder="0" scrolling="no" onload="changeFrameHeight()"></iframe>
 		</div>
-		<%--<div style="float:right">
-		</div>--%>
+		<div style="float:right">
+			<iframe  id="iframeright" name="iframeright" frameborder="0" scrolling="no"></iframe>
+		</div>
 	</div>
 </body>
 </html>
