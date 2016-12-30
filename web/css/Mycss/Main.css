@@ -14,11 +14,23 @@
 
 /*用于设置主页左部css*/
 #middle_left{
-	width: 100%;
+	width: 20%;
 	height: 100%;
 	float: left;
 	position:relative;
+    margin-left: -20px;
+    margin-top: 30px;
 }
+
+#middle_right{
+    width: 80%;
+    height: 100%;
+    float: right;
+    position:relative;
+    margin-left: -20px;
+    margin-top: 30px;
+}
+
 #iframeleft{
     float:left;
 	height:500px;

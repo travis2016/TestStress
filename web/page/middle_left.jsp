@@ -88,7 +88,7 @@
                         alert(data.href);
                         alert(data.text);
                         alert(data.nodeId);
-                        window.parent.document.getElementById("iframeright").src="<%=basePath%>/page/middle_right.jsp";
+                        window.parent.document.getElementById("iframeright").src="<%=basePath%>/page/middle_left.jsp";
 
                         var arr = $('#treeview').treeview('getSelected');
                         alert(JSON.stringify(arr));
