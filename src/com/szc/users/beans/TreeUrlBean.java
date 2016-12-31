@@ -2,7 +2,9 @@ package com.szc.users.beans;
 
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -23,6 +25,8 @@ public class TreeUrlBean {
 
     }
 
+    @Id
+    @Column(name = "treeid")
     public int getTreeid() {
         return treeid;
     }
@@ -31,6 +35,7 @@ public class TreeUrlBean {
         this.treeid = treeid;
     }
 
+    @Column(name = "treename")
     public String getTreename() {
         return treename;
     }
@@ -39,6 +44,7 @@ public class TreeUrlBean {
         this.treename = treename;
     }
 
+    @Column(name = "parentid")
     public int getParentid() {
         return parentid;
     }
@@ -47,6 +53,7 @@ public class TreeUrlBean {
         this.parentid = parentid;
     }
 
+    @Column(name = "url")
     public String getUrl() {
         return url;
     }
@@ -55,6 +62,7 @@ public class TreeUrlBean {
         this.url = url;
     }
 
+    @Column(name = "isshow")
     public int getIsshow() {
         return isshow;
     }
