@@ -74,7 +74,7 @@ public class RegisterAction extends ActionSupport {
         	JSONObject paramJson = new JSONObject(jsonString);    
 //        	System.out.println(paramJson.getString("nickname"));
         	UserBean registerUser=new UserBean(paramJson.getString("username"),MD5Util.string2MD5(paramJson.getString("password"))
-        						,Integer.parseInt(paramJson.getString("gender")), java.net.URLDecoder.decode(paramJson.getString("nickname"),"UTF-8"),3);
+					,Integer.parseInt(paramJson.getString("gender")), java.net.URLDecoder.decode(paramJson.getString("nickname"),"UTF-8"),102);
         	userService.save(registerUser);	// register user 
             out = response.getWriter();
             String resultString = "{\"status\":1}";
@@ -93,7 +93,7 @@ public class RegisterAction extends ActionSupport {
 	@Action(value="/judgeUserExitAction")
 	public void judgeUser(){
 		try {
-			System.out.println("判断用户是否已注册");
+//			System.out.println("判断用户是否已注册");
 			UserBean user = new UserBean(request.getParameter("userName"));
 			PrintWriter out=null;
 			System.out.println("username="+user.getUserName());

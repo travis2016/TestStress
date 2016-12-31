@@ -9,12 +9,20 @@ import javax.persistence.Table;
 
 /**
  * @author TravisSong
- * 数据库TreeUrl表的原型
+ * 数据库TreeUrl表的原型，导航树表存储
  */
 
 @Entity
 @Table(name = "treeurl" ,catalog = "sshProject")
 public class TreeUrlBean {
+    /**
+     * @param treeid 主页左侧树列
+     * @param treename 树的显示名称
+     * @param parentid 是否有父节点
+     * @param url 对应导航栏的url
+     * @param isshow 是否显示
+     */
+
     private int treeid;
     private String treename;
     private int parentid;
