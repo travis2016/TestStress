@@ -42,7 +42,6 @@ public class UserDaoImpl implements UserDao{
 		try{
             Session sess = getSession();
             Transaction tx = sess.beginTransaction();
-//            System.out.println("nickname"+user.getNickname());
             sess.save(user);
             tx.commit();          
             sess.close();         
@@ -58,7 +57,7 @@ public class UserDaoImpl implements UserDao{
 	 * 判断用户是否存在
 	 */
 	public boolean isExitByName(String userName) {
-		System.out.println("执行");
+//		System.out.println("执行");
 		Session sess = getSession();
 //        Transaction tx = sess.beginTransaction();
         String sql="select * from userinfo where userName=?";
