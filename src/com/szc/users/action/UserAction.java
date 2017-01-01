@@ -118,8 +118,19 @@ public class UserAction  extends ActionSupport {
 			out = response.getWriter();
 			String selectusername = request.getParameter("username");
 			List selectTreeList=userService.searchListTree(selectusername);
+			JSONArray dataJsonArray = new JSONArray();
+			JSONArray paremtArray = new JSONArray();  //节点的json数据
+			int dateJsonArrayIndex = 0;
 			for(int i=0;i<selectTreeList.size();i++){
+				JSONObject dataJson = new JSONObject();
 				Object[] treeList=(Object[])selectTreeList.get(i);
+				//等于0是没有子节点
+				if((Integer)treeList[2] == 0){
+					dataJson.element("text",treeList[1]);
+					dataJson.element("nodes","");
+				}else{
+
+				}
 				System.out.println(treeList[0]);
 			}
 			out.print(selectTreeList);
