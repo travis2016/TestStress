@@ -34,10 +34,10 @@ import com.szc.users.service.Impl.UserServiceImpl;
  * @author TravisSong
  * UserAction负责处理用户表的一些操作
  */
-@Controller("UserAction")
+//@Controller("UserAction")
 @Scope("prototype")
 @Namespace("/")
-@ParentPackage(value="test") 
+@ParentPackage(value="test")
 public class UserAction  extends ActionSupport {
     
 	private static final long serialVersionUID = 1L;  
@@ -46,6 +46,7 @@ public class UserAction  extends ActionSupport {
   	private ServletContext Context;
   	private WebApplicationContext ctx;
   	private PrintWriter out;
+	private String username;
   	
   	private UserServiceImpl userService; 
   	
@@ -72,9 +73,6 @@ public class UserAction  extends ActionSupport {
 	@Action(value = "/selectAction"
 			,results = { @Result(name = "add", location = "/login.jsp")}
 			,interceptorRefs= {@InterceptorRef(value="checkLoginStack")}) 	
-	/*//ajax的方法，返回的Type必须是json
-	 ,results = { @Result(name = "add", location = "/login.jsp")}
-	,interceptorRefs= {@InterceptorRef(value="checkLoginStack")}*/
 	public void selectUser() {
 		try {
 			out= response.getWriter();
@@ -111,5 +109,34 @@ public class UserAction  extends ActionSupport {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	//查询用户拥有的权限
+	@Action(value = "/selectTreeAction")
+	public void  SelectTreeList(){
+		try {
+			out = response.getWriter();
+			String selectusername = request.getParameter("username");
+			List selectTreeList=userService.searchListTree(selectusername);
+			for(int i=0;i<selectTreeList.size();i++){
+				Object[] treeList=(Object[])selectTreeList.get(i);
+				System.out.println(treeList[0]);
+			}
+			out.print(selectTreeList);
+			out.flush();
+			out.close();
+		}catch (Exception e){
+
+		}
+
+
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

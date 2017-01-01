@@ -31,8 +31,8 @@ public class TreeDaoImpl implements TreeDao {
     @Override
     public List selectTreeList(String username) {
         Session sess = getSession();
-        String sql = "SELECT * FROM treeurl WHERE FIND_IN_SET(treeid,(SELECT a.treeidlist FROM rolegroup a WHERE groupid = (SELECT userinfo.`groupid` FROM userinfo" +
-                " WHERE userinfo.`userName` = '?')))";
+        String sql = "SELECT * FROM treeurl WHERE FIND_IN_SET(treeid,(SELECT a.treeidlist FROM rolegroup a WHERE groupid = (SELECT userinfo.groupid FROM userinfo" +
+                " WHERE userinfo.userName =?)))";
         SQLQuery query = sess.createSQLQuery(sql);
         query.setParameter(0,username);
         List treelist = query.list();

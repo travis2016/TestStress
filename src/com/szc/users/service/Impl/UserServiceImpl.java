@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.szc.users.dao.Impl.TreeDaoImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Resource
 	private UserDaoImpl usersdao;
+	@Resource
+	private TreeDaoImpl treedao;
 	
 	@Override
 	public UserBean save(UserBean user) {
@@ -51,10 +54,16 @@ public class UserServiceImpl implements UserService {
 		this.usersdao = usersdao;
 	}
 
+	public TreeDaoImpl getTreedao() {return treedao;}
+	public void setTreedao(TreeDaoImpl treedao) {this.treedao = treedao;}
+
 	@Override
 	public List searchUser() {
 		return usersdao.selectUser();
 	}
 
-	
+	@Override
+	public List searchListTree(String username) {
+		return treedao.selectTreeList(username);
+	}
 }

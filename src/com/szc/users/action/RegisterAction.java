@@ -46,7 +46,7 @@ public class RegisterAction extends ActionSupport {
   	private HttpServletResponse response;
   	private ServletContext Context;
   	private WebApplicationContext ctx;
-  	
+
   	
 	public RegisterAction() {
 		request = ServletActionContext.getRequest();

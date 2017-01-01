@@ -45,4 +45,9 @@ public interface UserService {
      * 用于搜索用户
      */
     public List searchUser();
+
+    /**
+     * 用于搜索拥有哪些树的权限
+     */
+    public List searchListTree(String username);
 }
