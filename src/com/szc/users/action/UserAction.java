@@ -131,7 +131,7 @@ public class UserAction  extends ActionSupport {
 				}else{
 
 				}
-				System.out.println(treeList[0]);
+				dataJsonArray.add(dataJson);
 			}
 			out.print(selectTreeList);
 			out.flush();
