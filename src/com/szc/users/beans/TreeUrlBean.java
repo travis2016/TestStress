@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "treeurl" ,catalog = "sshProject")
-public class TreeUrlBean {
+public class TreeUrlBean extends GeneralFunction {
     /**
      * @param treeid 主页左侧树列
      * @param treename 树的显示名称

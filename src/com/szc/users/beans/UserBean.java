@@ -16,7 +16,7 @@ import javax.persistence.Table;
 //Entity：表明当前类是一个持久化类。user是表名，sshProject是数据库名
 @Entity
 @Table(name="userinfo", catalog="sshProject")
-public class UserBean {
+public class UserBean extends GeneralFunction{
 	/**
 	 * @param userId 数据库User表的主键，唯一的
 	 * @param userName 数据库User表的用户名

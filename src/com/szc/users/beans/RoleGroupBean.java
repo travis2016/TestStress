@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "rolegroup" , catalog = "sshProject")
-public class RoleGroup {
+public class RoleGroupBean extends GeneralFunction {
 
 
     private int groupid;
