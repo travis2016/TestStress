@@ -21,29 +21,18 @@ import java.util.List;
  */
 @Repository("treedao")
 public class TreeDaoImpl extends BaseDaoImpl implements TreeDao {
-
-    @Resource(name = "sessionFactory")
-    private SessionFactory sessionFactory;
-
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-    public Session getSession() {
-        return sessionFactory.openSession();
-    }
+    @Resource(name="sessionFactory")
+    public  SessionFactory sessionFactory;
 
     @Override
     public List selectTreeList(String username) {
-        Session sess = getSession();
+        BaseDaoImpl baseSession = new BaseDaoImpl();
+        baseSession.setSessionFactory(sessionFactory);
+        Session sess = baseSession.getSession();
         String sql = "SELECT * FROM treeurl WHERE FIND_IN_SET(treeid,(SELECT a.treeidlist FROM rolegroup a WHERE groupid = (SELECT userinfo.groupid FROM userinfo" +
-                " WHERE userinfo.userName =?))) AND isshow = 1 ORDER BY treeid";
+                " WHERE userinfo.userName =:username))) AND isshow = 1 ORDER BY treeid";
         SQLQuery query = sess.createSQLQuery(sql);
-        query.setParameter(0, username);
+        query.setString("username",username);
         List treelist = query.list();
         sess.close();
         return treelist;
