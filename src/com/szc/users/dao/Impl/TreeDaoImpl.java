@@ -3,9 +3,10 @@ package com.szc.users.dao.Impl;
 
 import com.szc.users.beans.TreeUrlBean;
 import com.szc.users.dao.TreeDao;
-import org.hibernate.SQLQuery;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author :travissong
@@ -31,7 +33,7 @@ public class TreeDaoImpl extends BaseDaoImpl implements TreeDao {
         Session sess = baseSession.getSession();
         String sql = "SELECT * FROM treeurl WHERE FIND_IN_SET(treeid,(SELECT a.treeidlist FROM rolegroup a WHERE groupid = (SELECT userinfo.groupid FROM userinfo" +
                 " WHERE userinfo.userName =:username))) AND isshow = 1 ORDER BY treeid";
-        SQLQuery query = sess.createSQLQuery(sql);
+        Query query = sess.createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
         query.setString("username",username);
         List treelist = query.list();
         sess.close();

@@ -3,11 +3,13 @@ package com.szc.users.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.szc.users.beans.TreeUrlBean;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -48,15 +50,15 @@ public class UserAction  extends ActionSupport {
   	private PrintWriter out;
 	private String username;
   	
-  	private UserServiceImpl userService; 
+  	private UserServiceImpl userServiceDao;
   	
   	 @Autowired
- 	public void setUserService(UserServiceImpl userService) {
- 		this.userService = userService;
+ 	public void setUserService(UserServiceImpl userServiceDao) {
+ 		this.userServiceDao = userServiceDao;
  	}
      
      public UserServiceImpl getUserService() {
- 		return userService;
+ 		return userServiceDao;
  	}
     
   	public UserAction() {
@@ -77,7 +79,7 @@ public class UserAction  extends ActionSupport {
 		try {
 			out= response.getWriter();
 			UserBean selectUser=new UserBean();
-	    	List userList=userService.searchUser();
+	    	List userList=userServiceDao.searchUser();
 	    	/*
 	    	Object[] user1=(Object[])userList.get(0);
 	    	JSONArray selectResult = JSONArray.fromObject(userList);
@@ -117,16 +119,16 @@ public class UserAction  extends ActionSupport {
 		try {
 			out = response.getWriter();
 			String selectusername = request.getParameter("username");
-			List selectTreeList=userService.searchListTree(selectusername);
+			List selectTreeList=userServiceDao.searchListTree(selectusername);
 			JSONArray dataJsonArray = new JSONArray();
 			JSONArray paremtArray = new JSONArray();  //节点的json数据
 			int dateJsonArrayIndex = 0;
 			for(int i=0;i<selectTreeList.size();i++){
 				JSONObject dataJson = new JSONObject();
-				Object[] treeList=(Object[])selectTreeList.get(i);
+				Map treeurlMap = (Map)selectTreeList.get(i);
 				//等于0是没有子节点
-				if((Integer)treeList[2] == 0){
-					dataJson.element("text",treeList[1]);
+				if((Integer)treeurlMap.get("parentid") == 0){
+					dataJson.element("text",treeurlMap.get("treename"));
 					dataJson.element("nodes","");
 				}else{
 

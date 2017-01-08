@@ -49,5 +49,5 @@ public interface UserService {
     /**
      * 用于搜索拥有哪些树的权限
      */
-    public List searchListTree(String username);
+    public List<?> searchListTree(String username);
 }

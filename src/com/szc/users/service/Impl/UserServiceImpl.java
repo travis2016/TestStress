@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List searchListTree(String username) {
+	public List<?> searchListTree(String username) {
 		return treedao.selectTreeList(username);
 	}
 }
