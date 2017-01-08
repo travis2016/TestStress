@@ -123,26 +123,13 @@ public class UserAction  extends ActionSupport {
 			JSONArray dataJsonArray = new JSONArray();
 			JSONArray paremtArray = new JSONArray();  //节点的json数据
 			int dateJsonArrayIndex = 0;
-			for(int i=0;i<selectTreeList.size();i++){
-				JSONObject dataJson = new JSONObject();
-				Map treeurlMap = (Map)selectTreeList.get(i);
-				//等于0是没有子节点
-				if((Integer)treeurlMap.get("parentid") == 0){
-					dataJson.element("text",treeurlMap.get("treename"));
-					dataJson.element("nodes","");
-				}else{
-
-				}
-				dataJsonArray.add(dataJson);
-			}
-			out.print(selectTreeList);
+			String resultString = "";
+			out.write(selectTreeList.toString());
 			out.flush();
 			out.close();
 		}catch (Exception e){
 
 		}
-
-
 	}
 
 	public String getUsername() {
@@ -152,4 +139,42 @@ public class UserAction  extends ActionSupport {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	/**
+	 * 迭代函数，用于生成middle_left的数据
+	 */
+	public static String getTreeList(List treeList,int iterIndex,String resultString){
+		    Map treeurlMap = (Map)treeList.get(iterIndex);
+			//等于0是没有子节点
+			if((Integer)treeurlMap.get("parentid") == 0){
+				String treename = treeurlMap.get("treename").toString();
+				String url = "'#"+treename+"'";
+
+			}else{
+				String url = "";
+				String treename = treeurlMap.get("treename").toString();
+				if(treeurlMap.get("url")!=null){
+					url = treeurlMap.get("url").toString();
+				}else{
+					url = "'#"+treename+"'";
+				}
+				return "{test:'"+treename+"',href:'"+url+"'";
+			}
+		return "";
+	}
 }
+
+/**
+ for(int i=0;i<selectTreeList.size();i++){
+ JSONObject dataJson = new JSONObject();
+ Map treeurlMap = (Map)selectTreeList.get(i);
+ //等于0是没有子节点
+ if((Integer)treeurlMap.get("parentid") == 0){
+ dataJson.element("text",treeurlMap.get("treename"));
+ dataJson.element("nodes","");
+ }else{
+
+ }
+ dataJsonArray.add(dataJson);
+ }
+ **/
