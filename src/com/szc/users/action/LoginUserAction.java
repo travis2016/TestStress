@@ -67,18 +67,18 @@ public class LoginUserAction extends ActionSupport {
 		JSONObject resultjson = new JSONObject();
 		try{	
 			String jsonString = IOUtils.toString(request.getInputStream());
-			System.out.println("用户参数：==============="+jsonString);
-        	JSONObject paramJson = new JSONObject(jsonString); 
+        	JSONObject paramJson = new JSONObject(jsonString);
 			UserBean loginrUser=new UserBean(paramJson.getString("username"),MD5Util.string2MD5(paramJson.getString("password")));
 			out = response.getWriter();			
 			boolean results=userService.userLogin(loginrUser.getUserName(), loginrUser.getPassword());
 			System.out.println("返回结果："+results);
 			if(results==true){
 				String nicknames=userService.searchUserNickname(loginrUser.getUserName());
-				System.out.println(nicknames);
-				//从已经建好的Session中取数据，如果没有Session则自动创建  
+				String username = loginrUser.getUserName();
+				//从已经建好的Session中取数据，如果没有Session则自动创建
                 HttpSession session=request.getSession(true); 
-                session.setAttribute("loginusername",nicknames);
+                session.setAttribute("loginusername",nicknames);  //昵称
+				session.setAttribute("username",username); //登录名称
 //				ActionContext.getContext().getSession().put("user",loginrUser);
 //				ActionContext.getContext().getSession().put("loginusername",nicknames);
 				resultjson.append("status", 1);

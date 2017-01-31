@@ -4,6 +4,7 @@
     <%
         String path = request.getContextPath();
         String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+        String uTrueName=(String)request.getSession().getAttribute("username");
         String uname=(String)request.getSession().getAttribute("loginusername");
     %>
     <!DOCTYPE html>
@@ -14,70 +15,33 @@
         <script src="../js/jquery-2.2.2.min.js" type="text/javascript"></script>
         <script src="../js/bootstrap-treeview.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            function buildDomTree() {
-                var data = [
-                    {
-                        text: 'Parent 1',
-                        href: '#parent1',
-                        tags: ['4'],
-                        nodes: [
-                            {
-                                text: 'Child 1',
-                                tags: ['2'],
-                                nodes: [
-                                    {
-                                        showTags:true,
-                                        text: 'Grandchild 1',
-                                        href: '#grandchild1',
-                                        tags: ['0']
-                                    },
-                                    {
-                                        text: 'Grandchild 2',
-                                        href: '#grandchild2',
-                                        tags: ['0']
-                                    }
-                                ]
-                            },
-                            {
-                                text: 'Child 2',
-                                href: '#child2',
-                                tags: ['0']
-                            }
-                        ]
+            function treeData() {
+                var loginName = "<%=uTrueName%>";
+                //请求接口返回data数据
+                var returnData=$.ajax({
+                    type: "POST",
+                    url: "selectTreeAction",
+                    dataType : "JSON",
+                    data: "username="+loginName,
+                    success: function (data) {
+                        if (data) {
+                            return data.treeData;
+                        }
                     },
-                    {
-                        text: 'Parent 2',
-                        href: '#parent2',
-                        tags: ['0']
-                    },
-                    {
-                        text: 'Parent 3',
-                        href: '#parent3',
-                        tags: ['0']
-                    },
-                    {
-                        text: 'Parent 4',
-                        href: '#parent4',
-                        tags: ['0']
-                    },
-                    {
-                        text: 'Parent 5',
-                        href: '#parent5'  ,
-                        tags: ['0']
+                    error: function (e) {
+                        alert("查询权限异常");
                     }
-                ];
-
-                return data;
+                });
+                console.log(returnData);
+                return returnData;
             }
-
             $(function(){
-
                 var options = {
                     color: "#428bca",
                     expandIcon: 'glyphicon glyphicon-chevron-right',
                     collapseIcon: 'glyphicon glyphicon-chevron-down',
                     nodeIcon: 'glyphicon glyphicon-bookmark',
-                    data: buildDomTree()
+                    data:treeData()
                 };
 
                 $('#treeview').treeview(options);

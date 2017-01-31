@@ -13,6 +13,7 @@ import com.szc.users.beans.TreeUrlBean;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
@@ -120,15 +121,32 @@ public class UserAction  extends ActionSupport {
 			out = response.getWriter();
 			String selectusername = request.getParameter("username");
 			List selectTreeList=userServiceDao.searchListTree(selectusername);
-			JSONArray dataJsonArray = new JSONArray();
-			JSONArray paremtArray = new JSONArray();  //节点的json数据
-			int dateJsonArrayIndex = 0;
-			String resultString = "";
-			out.write(selectTreeList.toString());
+			Map childMap = new HashedMap();
+			JSONArray childArray = new JSONArray();
+			int chileIndex = 0 ;
+			for(int i=0;i<selectTreeList.size();i++){
+				Map treeurlMap = (Map)selectTreeList.get(i);
+				JSONObject dataJson = new JSONObject();
+				if((Integer)treeurlMap.get("parentid") == 0){
+					dataJson.element("text",treeurlMap.get("treename"));
+					dataJson.element("nodes",new JSONArray());
+					childMap.put(treeurlMap.get("treeid").toString(),chileIndex);
+					childArray.add(chileIndex,dataJson);
+					chileIndex++;
+				}else{
+					int parentidIndex =(Integer) childMap.get(treeurlMap.get("parentid").toString());
+					dataJson.element("text",treeurlMap.get("treename"));
+					dataJson.element("href",treeurlMap.get("url"));
+					childArray.getJSONObject(parentidIndex).getJSONArray("nodes").add(dataJson);
+				}
+			}
+			JSONObject resultJson = new JSONObject();
+			resultJson.element("treeData","'"+childArray.toString()+"'");
+			out.write(resultJson.toString());
 			out.flush();
 			out.close();
 		}catch (Exception e){
-
+			e.printStackTrace();
 		}
 	}
 
@@ -140,28 +158,6 @@ public class UserAction  extends ActionSupport {
 		this.username = username;
 	}
 
-	/**
-	 * 迭代函数，用于生成middle_left的数据
-	 */
-	public static String getTreeList(List treeList,int iterIndex,String resultString){
-		    Map treeurlMap = (Map)treeList.get(iterIndex);
-			//等于0是没有子节点
-			if((Integer)treeurlMap.get("parentid") == 0){
-				String treename = treeurlMap.get("treename").toString();
-				String url = "'#"+treename+"'";
-
-			}else{
-				String url = "";
-				String treename = treeurlMap.get("treename").toString();
-				if(treeurlMap.get("url")!=null){
-					url = treeurlMap.get("url").toString();
-				}else{
-					url = "'#"+treename+"'";
-				}
-				return "{test:'"+treename+"',href:'"+url+"'";
-			}
-		return "";
-	}
 }
 
 /**
