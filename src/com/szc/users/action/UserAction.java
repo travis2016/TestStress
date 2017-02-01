@@ -159,18 +159,3 @@ public class UserAction  extends ActionSupport {
 	}
 
 }
-
-/**
- for(int i=0;i<selectTreeList.size();i++){
- JSONObject dataJson = new JSONObject();
- Map treeurlMap = (Map)selectTreeList.get(i);
- //等于0是没有子节点
- if((Integer)treeurlMap.get("parentid") == 0){
- dataJson.element("text",treeurlMap.get("treename"));
- dataJson.element("nodes","");
- }else{
-
- }
- dataJsonArray.add(dataJson);
- }
- **/

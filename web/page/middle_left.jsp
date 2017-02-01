@@ -17,31 +17,37 @@
         <script type="text/javascript">
             function treeData() {
                 var loginName = "<%=uTrueName%>";
+                var dataObject = new Object()
                 //请求接口返回data数据
-                var returnData=$.ajax({
+                var dataTree=
+                 $.ajax({
                     type: "POST",
                     url: "selectTreeAction",
                     dataType : "JSON",
+                    async:false,
                     data: "username="+loginName,
-                    success: function (data) {
+                    success: function(data) {
                         if (data) {
-                            return data.treeData;
+                            var aobj =data.treeData;
+                            dataObject=aobj;
                         }
                     },
                     error: function (e) {
                         alert("查询权限异常");
                     }
                 });
-                console.log(returnData);
-                return returnData;
+
+                return dataObject;
             }
+
             $(function(){
+                var datas = treeData();
                 var options = {
                     color: "#428bca",
                     expandIcon: 'glyphicon glyphicon-chevron-right',
                     collapseIcon: 'glyphicon glyphicon-chevron-down',
                     nodeIcon: 'glyphicon glyphicon-bookmark',
-                    data:treeData()
+                    data:datas
                 };
 
                 $('#treeview').treeview(options);
@@ -49,11 +55,10 @@
                 $('#treeview').on('nodeSelected', function(event, data) {
                     // clickNode(event, data)
                     if(data.href != undefined){
-                        alert(data.href);
+                        /*alert(data.href);
                         alert(data.text);
-                        alert(data.nodeId);
-                        window.parent.document.getElementById("iframeright").src="<%=basePath%>/page/middle_left.jsp";
-
+                        alert(data.nodeId);*/
+                        window.parent.document.getElementById("iframeright").src="<%=basePath%>"+data.href;
                         var arr = $('#treeview').treeview('getSelected');
                         alert(JSON.stringify(arr));
                     }
