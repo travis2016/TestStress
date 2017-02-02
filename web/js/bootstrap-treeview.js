@@ -50,7 +50,7 @@
 		searchResultColor: '#D9534F',
 		searchResultBackColor: undefined, //'#FFFFFF',
 
-		enableLinks: true,
+		enableLinks: false,
 		highlightSelected: true,
 		highlightSearchResults: true,
 		showBorder: true,

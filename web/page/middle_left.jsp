@@ -53,14 +53,13 @@
                 $('#treeview').treeview(options);
 
                 $('#treeview').on('nodeSelected', function(event, data) {
-                    // clickNode(event, data)
                     if(data.href != undefined){
                         /*alert(data.href);
                         alert(data.text);
                         alert(data.nodeId);*/
                         window.parent.document.getElementById("iframeright").src="<%=basePath%>"+data.href;
                         var arr = $('#treeview').treeview('getSelected');
-                        alert(JSON.stringify(arr));
+                        console.log(JSON.stringify(arr));
                     }
                 });
             });
