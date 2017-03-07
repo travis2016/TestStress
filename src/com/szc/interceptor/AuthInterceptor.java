@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
 /**
  * 
  * @author travissong
- * 拦截器11
+ * 拦截器
  *
  */
 public class AuthInterceptor implements Interceptor{
