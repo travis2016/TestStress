@@ -24,7 +24,10 @@
 
 #middle_right{
     width: 80%;
+    /**
     height: 100%;
+    min-height:200px;
+    **/
     float: right;
     position:relative;
     margin-left: -20px;
@@ -36,6 +39,12 @@
 	height:500px;
 }
 
+/**主页面的右则**/
+#iframeright{
+    float: left;
+    height:inherit;
+    width: inherit;
+}
 /*
 用户主页面的css
 */

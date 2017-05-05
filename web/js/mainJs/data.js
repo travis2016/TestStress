@@ -50,6 +50,11 @@ function lodaUserData(){
                 clonedTr.insertAfter(tr);
 			});
 				$("#dataString").hide();
+				reloadRightPage();
+				/*var main = $(window.parent.document).find("#iframeright");
+				var thisheight = $(document).height() + 30;
+				main.height(thisheight);
+				$(window.parent.document).find("#middle_right").height(thisheight+30);*/
 				//alert(data.data);
 			}else if(data.status == 0 && data.error_code.equal('20001')){
 				//20001：参数格式错误
@@ -59,11 +64,21 @@ function lodaUserData(){
 		 error: function(error){ 
 	            ///请求出错处理 	             
 	            alert('错误信息：'+error.status);
-	     } 
-	})
+	     }
+	});
 }
+
+
 
 //delete userData
 function deleteUser(){
 	
+}
+
+//修改主页面右则页面大小
+function reloadRightPage() {
+	var main = $(window.parent.document).find("#iframeright");
+	var thisheight = $(document).height() + 30;
+	main.height(thisheight);
+	$(window.parent.document).find("#middle_right").height(thisheight+30);
 }

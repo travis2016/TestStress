@@ -12,14 +12,14 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 <title>用户信息页</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/Mycss/usepage.css">
-<script type="text/javascript" src="../../js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
 <script type="text/javascript" src="../../js/mainJs/data.js"></script>
 
 </head>
 <body onload="lodaUserData()">
  	<div class="row">
       <div class="col-lg-12">
-         <br><h1 class="page-header" style="text-align:left;">用户表</h1>
+         <br><h1 class="page-header" style="text-align:left;">用户信息</h1>
       </div>
     <table data-toggle="table" class="table table-bordered">
 	   	<thead>
