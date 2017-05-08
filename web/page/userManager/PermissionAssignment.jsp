@@ -12,16 +12,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 <body>
 	<div class="row">
       <div class="col-lg-12">
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
-         <br><h1 class="page-header">权限分配页</h1>
+         <br><h1 class="page-header">组权限分配页</h1>
       </div>
     </div> 
 </body>
