@@ -80,33 +80,27 @@ public class UserAction  extends ActionSupport {
 		try {
 			out= response.getWriter();
 			UserBean selectUser=new UserBean();
-	    	List userList=userServiceDao.searchUser();
-	    	/*
-	    	Object[] user1=(Object[])userList.get(0);
-	    	JSONArray selectResult = JSONArray.fromObject(userList);
-	    	int userid=(Integer)user1[0];
-	    	String userName=(String)user1[1];
-	    	System.out.println(userid);
-	    	System.out.println(userName);
-	    	System.out.println(selectResult.toString());
-	    	*/
-	    	JSONArray selectResult = JSONArray.fromObject(userList);
-	    	JSONArray dataJsonArray = new JSONArray();
-	    	JSONObject resultJson = new JSONObject();
-	    	resultJson.element("status", "1");
-	    	resultJson.element("error_code", "0");
-	    	for(int i=0;i<selectResult.size();i++){
-	    		Object[] user1=(Object[])userList.get(i);
-	    		JSONObject dataJsonObject = new JSONObject();
-	    		dataJsonObject.element("username", (String)user1[0]);
-	    		dataJsonObject.element("sex", (Integer)user1[1]);
-	    		dataJsonObject.element("usernickname", (String)user1[2]);
-	    		dataJsonObject.element("group", (Integer)user1[3]);
-	    		dataJsonArray.add(i, dataJsonObject);
-	    	}
-	    	resultJson.element("data", dataJsonArray);
+			String selectusername = request.getParameter("search");
+			if(selectusername.equals("searchUserList")) {
+				List userList = userServiceDao.searchUser();
+				JSONArray selectResult = JSONArray.fromObject(userList);
+				JSONArray dataJsonArray = new JSONArray();
+				JSONObject resultJson = new JSONObject();
+				resultJson.element("status", "1");
+				resultJson.element("error_code", "0");
+				for (int i = 0; i < selectResult.size(); i++) {
+					Object[] user1 = (Object[]) userList.get(i);
+					JSONObject dataJsonObject = new JSONObject();
+					dataJsonObject.element("username", (String) user1[0]);
+					dataJsonObject.element("sex", (Integer) user1[1]);
+					dataJsonObject.element("usernickname", (String) user1[2]);
+					dataJsonObject.element("group", (Integer) user1[3]);
+					dataJsonArray.add(i, dataJsonObject);
+				}
+				resultJson.element("data", dataJsonArray);
+				out.print(resultJson);
+			}
 	    	LOG.info("返回json数据了============Test111");
-	    	out.print(resultJson);
 	    	out.flush();
 	    	out.close();
 		} catch (IOException e) {

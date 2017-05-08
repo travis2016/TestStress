@@ -16,7 +16,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 <script type="text/javascript" src="../../js/mainJs/data.js"></script>
 
 </head>
-<body onload="lodaUserData()">
+<body onload="lodaUserData('searchUserList')">
  	<div class="row">
       <div class="col-lg-12">
          <br><h1 class="page-header" style="text-align:left;">用户信息</h1>
