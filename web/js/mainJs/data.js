@@ -30,12 +30,12 @@ function lodaUserData(){
                                 case(2):  
                                     $(this).html(data.data[index].usernickname);  
                                     break;  
-                                case(3): 
-                                	if(data.data[index].group==1){
+                                case(3):
+                                	if(data.data[index].group==100){
                                 		$(this).html("管理组");
-                                	}else if(data.data[index].group==2){
+                                	}else if(data.data[index].group==101){
                                 		$(this).html("测试组");
-                                	}else if(data.data[index].group==3){
+                                	}else if(data.data[index].group==102){
                                 		$(this).html("普通组");
                                 	}
                                     //$(this).html(data.data[index].group);  
