@@ -80,8 +80,8 @@ public class UserAction  extends ActionSupport {
 		try {
 			out= response.getWriter();
 			UserBean selectUser=new UserBean();
-			String selectusername = request.getParameter("search");
-			if(selectusername.equals("searchUserList")) {
+			String selectParam = request.getParameter("search");
+			if(selectParam.equals("searchUserList")) {
 				List userList = userServiceDao.searchUser();
 				JSONArray selectResult = JSONArray.fromObject(userList);
 				JSONArray dataJsonArray = new JSONArray();
@@ -97,6 +97,15 @@ public class UserAction  extends ActionSupport {
 					dataJsonObject.element("group", (Integer) user1[3]);
 					dataJsonArray.add(i, dataJsonObject);
 				}
+				resultJson.element("data", dataJsonArray);
+				out.print(resultJson);
+			}else if(selectParam.equals("searchGroupList")){
+				List groupList = userServiceDao.searchUser();
+				JSONArray selectResult = JSONArray.fromObject(groupList);
+				JSONArray dataJsonArray = new JSONArray();
+				JSONObject resultJson = new JSONObject();
+				resultJson.element("status", "1");
+				resultJson.element("error_code", "0");
 				resultJson.element("data", dataJsonArray);
 				out.print(resultJson);
 			}

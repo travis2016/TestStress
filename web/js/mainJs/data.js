@@ -53,7 +53,7 @@ function lodaUserData(searchParam){
 						$("#dataString").hide();
 						reloadRightPage();
 				}else if(searchParam == 'searchGroupList'){
-
+					alert('hhh');
 				}
 			}else if(data.status == 0 && data.error_code.equal('20001')){
 				//20001：参数格式错误

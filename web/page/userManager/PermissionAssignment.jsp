@@ -7,7 +7,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 String uname=(String)request.getSession().getAttribute("loginusername");
 %>
 <!DOCTYPE html>
+<head>
 <title>组权限分配页</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/Mycss/usepage.css">
+    <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../../js/mainJs/data.js"></script>
 </head>
 <body onload="lodaUserData('searchGroupList')">
 	<div class="row">
@@ -18,13 +23,12 @@ String uname=(String)request.getSession().getAttribute("loginusername");
             <thead>
             <tr id="menus">
                 <th data-field="userNames">组名</th>
+                <th data-field="userActons">组权限</th>
                 <th data-field="userActons">组操作</th>
             </tr>
             </thead>
             <tbody>
             <tr id="dataString">
-                <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
