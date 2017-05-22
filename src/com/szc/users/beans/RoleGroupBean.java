@@ -46,5 +46,7 @@ public class RoleGroupBean extends GeneralFunction {
         return treeidlist;
     }
 
-
+    public void setTreeidlist(String treeidlist) {
+         this.treeidlist = treeidlist;
+     }
 }
