@@ -1,9 +1,7 @@
 package com.szc.users.dao.Impl;
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -55,7 +53,7 @@ public class UserDaoImpl implements UserDao{
 	public boolean isExitByName(String userName) {
 //		System.out.println("执行");
 		Session sess = getSession();
-//        Transaction tx = sess.beginTransaction();
+//      Transaction tx = sess.beginTransaction();
         String sql="select * from userinfo where userName=?";
         SQLQuery query = sess.createSQLQuery(sql);
         query.setParameter(0,userName);
