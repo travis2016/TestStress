@@ -4,10 +4,12 @@ import com.szc.users.dao.UserManageCommonDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.common.util.impl.Log;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Created by Administrator on 2017/5/28.

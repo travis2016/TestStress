@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.szc.users.beans.TreeUrlBean;
+import com.szc.users.service.Impl.UserCommonManagerServiceImpl;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
@@ -25,7 +22,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.net.httpserver.Authenticator.Failure;
 import com.szc.users.beans.UserBean;
@@ -50,19 +46,26 @@ public class UserAction  extends ActionSupport {
   	private WebApplicationContext ctx;
   	private PrintWriter out;
 	private String username;
-  	
+  	private UserCommonManagerServiceImpl groupServiceDao;
   	private UserServiceImpl userServiceDao;
   	
-  	 @Autowired
+  	@Autowired
  	public void setUserService(UserServiceImpl userServiceDao) {
  		this.userServiceDao = userServiceDao;
  	}
-     
-     public UserServiceImpl getUserService() {
+	public UserServiceImpl getUserService() {
  		return userServiceDao;
  	}
-    
-  	public UserAction() {
+
+	public UserCommonManagerServiceImpl getGroupServiceDao() {
+		return groupServiceDao;
+	}
+	@Autowired
+	public void setGroupServiceDao(UserCommonManagerServiceImpl groupServiceDao) {
+		this.groupServiceDao = groupServiceDao;
+	}
+
+	public UserAction() {
 		request = ServletActionContext.getRequest();
 		response = ServletActionContext.getResponse();
 		response.setContentType("text/json;charset=UTF-8");//设置传输编码
@@ -100,7 +103,7 @@ public class UserAction  extends ActionSupport {
 				resultJson.element("data", dataJsonArray);
 				out.print(resultJson);
 			}else if(selectParam.equals("searchGroupList")){
-				List groupList = userServiceDao.searchUser();
+				List groupList = groupServiceDao.SearchGroup("");
 				JSONArray selectResult = JSONArray.fromObject(groupList);
 				JSONArray dataJsonArray = new JSONArray();
 				JSONObject resultJson = new JSONObject();
