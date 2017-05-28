@@ -50,10 +50,14 @@ function lodaUserData(searchParam){
 						//把克隆好的tr追加原来的tr后面
 						clonedTr.insertAfter(tr);
 					});
-						$("#dataString").hide();
-						reloadRightPage();
+					$("#dataString").hide();
+					reloadRightPage();
 				}else if(searchParam == 'searchGroupList'){
-					alert('hhh');
+					$.each (data.data,function(index,item){
+
+					});
+					$("#dataString").hide();
+					reloadRightPage();
 				}
 			}else if(data.status == 0 && data.error_code.equal('20001')){
 				//20001：参数格式错误
