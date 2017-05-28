@@ -18,17 +18,13 @@ public class UserDaoImpl implements UserDao{
 	
 	@Resource(name="sessionFactory")
 	 private  SessionFactory sessionFactory;
-	 
 	 public SessionFactory getSessionFactory() {
 	        return sessionFactory;
 		}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
+     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
 	}
-	 
-	
-	public Session getSession(){
+	 public Session getSession(){
 		return sessionFactory.openSession();
 	}
 	
