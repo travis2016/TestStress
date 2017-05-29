@@ -1,6 +1,7 @@
 package com.szc.users.dao.Impl;
 
 import com.szc.users.dao.UserManageCommonDao;
+import com.szc.util.Log4j;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

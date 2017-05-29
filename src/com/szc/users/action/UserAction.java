@@ -107,9 +107,8 @@ public class UserAction  extends ActionSupport {
 				JSONArray selectResult = JSONArray.fromObject(groupList);
 				JSONArray dataJsonArray = new JSONArray();
 				JSONObject resultJson = new JSONObject();
-				resultJson.element("status", "1");
-				resultJson.element("error_code", "0");
-				resultJson.element("data", dataJsonArray);
+				LOG.info("groupList:"+groupList.toString());
+				
 				out.print(resultJson);
 			}
 	    	LOG.info("返回json数据了============Test111");
