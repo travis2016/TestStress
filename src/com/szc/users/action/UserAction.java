@@ -107,8 +107,13 @@ public class UserAction  extends ActionSupport {
 				JSONArray selectResult = JSONArray.fromObject(groupList);
 				JSONArray dataJsonArray = new JSONArray();
 				JSONObject resultJson = new JSONObject();
-				LOG.info("groupList:"+groupList.toString());
-				
+				System.out.println("groupList:"+selectResult.toString());
+				resultJson.element("status", "1");
+				resultJson.element("error_code", "0");
+				for (int i = 0; i < selectResult.size(); i++) {
+					Object[] group1 =(Object[]) groupList.get(i);
+					JSONObject dataJsonObject = new JSONObject();
+				}
 				out.print(resultJson);
 			}
 	    	LOG.info("返回json数据了============Test111");
