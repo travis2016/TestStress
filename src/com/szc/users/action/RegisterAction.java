@@ -74,7 +74,7 @@ public class RegisterAction extends ActionSupport {
         	JSONObject paramJson = new JSONObject(jsonString);    
 //        	System.out.println(paramJson.getString("nickname"));
         	UserBean registerUser=new UserBean(paramJson.getString("username"),MD5Util.string2MD5(paramJson.getString("password"))
-					,Integer.parseInt(paramJson.getString("gender")), java.net.URLDecoder.decode(paramJson.getString("nickname"),"UTF-8"),102);
+					,Integer.parseInt(paramJson.getString("gender")), java.net.URLDecoder.decode(paramJson.getString("nickname"),"UTF-8"),"102");
         	userService.save(registerUser);	// register user 
             out = response.getWriter();
             String resultString = "{\"status\":1}";

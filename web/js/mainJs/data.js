@@ -55,7 +55,7 @@ function lodaUserData(searchParam){
 				}else if(searchParam == 'searchGroupList'){
 					$.each (data.data,function(index,item){
 						//产生新的tr
-						var clonedTr = tr.clone(true).attr("id","userinfo"+index).insertAfter($("#dataString"));
+						var clonedTr = tr.clone(true);
 						clonedTr.children("td").each(function(inner_index){
 							switch(inner_index){
 								case(0):

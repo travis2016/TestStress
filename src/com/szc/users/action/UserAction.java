@@ -19,13 +19,10 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.net.httpserver.Authenticator.Failure;
 import com.szc.users.beans.UserBean;
-import com.szc.users.service.UserService;
 import com.szc.users.service.Impl.UserServiceImpl;
 
 /**
@@ -97,7 +94,7 @@ public class UserAction  extends ActionSupport {
 					dataJsonObject.element("username", (String) user1[0]);
 					dataJsonObject.element("sex", (Integer) user1[1]);
 					dataJsonObject.element("usernickname", (String) user1[2]);
-					dataJsonObject.element("group", (Integer) user1[3]);
+					dataJsonObject.element("group", (String) user1[3]);
 					dataJsonArray.add(i, dataJsonObject);
 				}
 				resultJson.element("data", dataJsonArray);

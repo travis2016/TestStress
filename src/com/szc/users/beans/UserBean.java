@@ -31,13 +31,13 @@ public class UserBean extends GeneralFunction{
     private int gender;
     private String Password;
     private String nickname;
-    private int groupid;
+    private String groupid;
     
 	public UserBean(){
 		
 	}
 	
-	public UserBean(String userName,String  Password,int gender,String nickname,int groupid){
+	public UserBean(String userName,String  Password,int gender,String nickname,String groupid){
 		this.userName=userName;
 		this.Password=Password;
 		this.gender=gender;
@@ -98,11 +98,11 @@ public class UserBean extends GeneralFunction{
 	}
 
 	@Column(name="groupid")
-	public int getGroupid() {
+	public String getGroupid() {
 		return groupid;
 	}
 
-	public void setGroupid(int groupid) {
+	public void setGroupid(String groupid) {
 		this.groupid = groupid;
 	}
 	
