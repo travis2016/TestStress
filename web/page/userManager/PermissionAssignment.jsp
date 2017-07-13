@@ -23,13 +23,11 @@ String uname=(String)request.getSession().getAttribute("loginusername");
             <thead>
             <tr id="menus">
                 <th data-field="userNames">组名</th>
-                <th data-field="userActons">组权限</th>
                 <th data-field="userActons">组操作</th>
             </tr>
             </thead>
             <tbody>
             <tr id="dataString">
-                <td></td>
                 <td></td>
                 <td></td>
             </tr>

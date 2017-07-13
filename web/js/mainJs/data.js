@@ -54,7 +54,19 @@ function lodaUserData(searchParam){
 					reloadRightPage();
 				}else if(searchParam == 'searchGroupList'){
 					$.each (data.data,function(index,item){
-
+						//产生新的tr
+						var clonedTr = tr.clone(true).attr("id","userinfo"+index).insertAfter($("#dataString"));
+						clonedTr.children("td").each(function(inner_index){
+							switch(inner_index){
+								case(0):
+									$(this).html(data.data[index].groupname);
+									break;
+								case(1):
+									$(this).html("<button type=\"button\" class=\"btn btn-success\">修改权限</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
+									break;
+							}
+						});
+						clonedTr.insertAfter(tr);
 					});
 					$("#dataString").hide();
 					reloadRightPage();

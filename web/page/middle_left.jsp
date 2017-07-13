@@ -59,7 +59,7 @@
                         alert(data.nodeId);*/
                         window.parent.document.getElementById("iframeright").src="<%=basePath%>"+data.href;
                         var arr = $('#treeview').treeview('getSelected');
-                        console.log(JSON.stringify(arr));
+//                        console.log(JSON.stringify(arr));
                     }
                 });
             });
