@@ -13,6 +13,18 @@ String uname=(String)request.getSession().getAttribute("loginusername");
     <link rel="stylesheet" href="../../css/Mycss/usepage.css">
     <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
     <script type="text/javascript" src="../../js/mainJs/data.js"></script>
+    <SCRIPT LANGUAGE="JavaScript">
+        var selectedTr = null; //当前行
+        function editlocations(obj){
+            if (selectedTr == null){
+                selectedTr = obj;
+            }
+            var groupnames = selectedTr.parentNode.parentNode.cells[0].innerText;
+            console.log(groupnames);
+            location.href="editPermission.jsp?"+"groupname="+encodeURI(groupnames);
+        }
+    </SCRIPT>
+<body>
 </head>
 <body onload="lodaUserData('searchGroupList')">
 	<div class="row">
@@ -28,7 +40,7 @@ String uname=(String)request.getSession().getAttribute("loginusername");
             </thead>
             <tbody>
             <tr id="dataString">
-                <td></td>
+                <td class="groupname"></td>
                 <td></td>
             </tr>
             </tbody>

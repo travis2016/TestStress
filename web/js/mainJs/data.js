@@ -62,7 +62,7 @@ function lodaUserData(searchParam){
 									$(this).html(data.data[index].groupname);
 									break;
 								case(1):
-									$(this).html("<button type=\"button\" class=\"btn btn-success\">修改权限</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
+									$(this).html("<button id=\"editGroup\" type=\"button\" class=\"btn btn-success\" onclick=\"editlocations(this);\" >修改权限</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
 									break;
 							}
 						});
@@ -83,7 +83,10 @@ function lodaUserData(searchParam){
 	});
 }
 
+//修改权限js
+function editPersion(){
 
+}
 
 //delete userData
 function deleteUser(){
@@ -96,4 +99,73 @@ function reloadRightPage() {
 	var thisheight = $(document).height() + 30;
 	main.height(thisheight);
 	$(window.parent.document).find("#middle_right").height(thisheight+30);
+}
+
+function gerdata() {
+	$(function() {
+		var defaultData = [
+			{
+				text: 'Parent 1',
+				href: '#parent1',
+				tags: ['4'],
+				nodes: [
+					{
+						text: 'Child 1',
+						href: '#child1',
+						tags: ['2'],
+						nodes: [
+							{
+								text: 'Grandchild 1',
+								href: '/1.html',
+								tags: ['0'],
+								enableLinks: true,
+							},
+							{
+								text: 'Grandchild 2',
+								href: '#grandchild2',
+								tags: ['0']
+							}
+						]
+					},
+					{
+						text: 'Child 2',
+						href: '#child2',
+						tags: ['0']
+					}
+				]
+			},
+			{
+				text: 'Parent 2',
+				href: '#parent2',
+				tags: ['0']
+			},
+			{
+				text: 'Parent 3',
+				href: '#parent3',
+				tags: ['0']
+			},
+			{
+				text: 'Parent 4',
+				href: '#parent4',
+				tags: ['0']
+			},
+			{
+				text: 'Parent 5',
+				href: '#parent5',
+				tags: ['0']
+			}
+		]
+		var $checkableTree = $('#treeview-checkable').treeview({
+			data: defaultData,
+			color: "#428bca",
+			showIcon: false,
+			showCheckbox: true,
+			onNodeChecked: function(event, node) {
+				$('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
+			},
+			onNodeUnchecked: function (event, node) {
+				$('#checkable-output').prepend('<p>' + node.text + ' was unchecked</p>');
+			}
+		});
+	});
 }
