@@ -20,7 +20,6 @@ String uname=(String)request.getSession().getAttribute("loginusername");
                 selectedTr = obj;
             }
             var groupnames = selectedTr.parentNode.parentNode.cells[0].innerText;
-            console.log(groupnames);
             location.href="editPermission.jsp?"+"groupname="+encodeURI(groupnames);
         }
     </SCRIPT>

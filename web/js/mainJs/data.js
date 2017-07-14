@@ -101,7 +101,9 @@ function reloadRightPage() {
 	$(window.parent.document).find("#middle_right").height(thisheight+30);
 }
 
-function gerdata() {
+function gerdata(groupnames,urlparent) {
+	var url = urlparent+"selectAction";
+	console.log('url=='+url);
 	$(function() {
 		var defaultData = [
 			{

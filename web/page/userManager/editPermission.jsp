@@ -7,6 +7,10 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ taglib prefix="logins" uri="/struts-tags"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <title>修改权限页</title>
@@ -19,8 +23,7 @@
         var n1 = loc.length;//地址的总长度
         var n2 = loc.indexOf("=");//取得=号的位置
         var groupnames = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
-        console.log(groupnames);
-        gerdata(groupnames);
+        gerdata(groupnames,"<%=basePath %>");
     </script>
 </head>
 <body>
