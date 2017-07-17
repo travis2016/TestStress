@@ -22,7 +22,7 @@ public class AuthInterceptor implements Interceptor{
 		//String result = "";
 		Map<String, Object> session = invocation.getInvocationContext().getContext().getSession();
 		if(session.get("loginusername")!=null){
-			System.out.println("有权限"+session.get("loginusername"));
+			System.out.println("有权限::::"+session.get("loginusername"));
 			return invocation.invoke();
 		}
 		System.out.println("执行这里");

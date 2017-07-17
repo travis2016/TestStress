@@ -16,4 +16,11 @@ public interface TreeDao {
      * 查询用户拥有哪些权限
      */
     public List selectTreeList(String username);
+
+    /**
+     * 根据提供的listid，查找对应的名字
+     * @param searchListId
+     * @return
+     */
+    public List selectTreeName(String searchListId);
 }

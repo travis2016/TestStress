@@ -102,7 +102,14 @@ function reloadRightPage() {
 }
 
 function gerdata(groupnames,urlparent) {
-	var url = urlparent+"selectAction";
+	//中文需要两次编码
+	var url = urlparent+"group/selectGroupAction";
+	$.ajax( {
+		type : "get",
+		url : url,
+		data: "search=searchSingerGroup&groupname="+encodeURI(encodeURI(groupnames)),
+		contentType: "application/json",
+	});
 	console.log('url=='+url);
 	$(function() {
 		var defaultData = [

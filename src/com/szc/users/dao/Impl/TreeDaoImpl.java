@@ -39,7 +39,29 @@ public class TreeDaoImpl extends BaseDaoImpl implements TreeDao {
         sess.close();
         return treelist;
     }
+
+    /**
+     * 根据提供的listid，查找对应的名字
+     * @param searchListId
+     * @return
+     */
+    @Override
+    public List selectTreeName(String searchListId){
+        BaseDaoImpl baseSession = new BaseDaoImpl();
+        String[] treeNameListArray = searchListId.split(",");
+        baseSession.setSessionFactory(sessionFactory);
+        Session sess = baseSession.getSession();
+        System.out.println("test:"+searchListId);
+        String sql = "SELECT treename FROM treeurl AS a WHERE a.treeid IN(:searchListId)";
+        Query query = sess.createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+        query.setParameterList("searchListId",treeNameListArray);
+        List treeNameList =query.list();
+        sess.close();
+        return treeNameList;
+    }
 }
+
+
 
 /**
  public List<TreeUrlBean> selectTreeList(String username) {
