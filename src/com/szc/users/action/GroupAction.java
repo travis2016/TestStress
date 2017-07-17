@@ -5,6 +5,7 @@ import com.szc.users.dao.Impl.TreeDaoImpl;
 import com.szc.users.service.Impl.UserCommonManagerServiceImpl;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,14 +75,22 @@ public class GroupAction {
                 JSONArray selectResult = JSONArray.fromObject(groupList);
                 JSONObject selectJson = selectResult.getJSONObject(0);
                 //根据treeid查treelist
-                System.out.println("treeids===="+selectJson.getString("treeidlist"));
                 List groupNameList = treeDaoControl.selectTreeName(selectJson.getString("treeidlist"));
                 JSONArray groupTreeNameArray = JSONArray.fromObject(groupNameList);
-                System.out.println(groupTreeNameArray.toString());
+                //开始组装返回数据
                 JSONObject resultJson = new JSONObject();
+                String[] resultJsonChildString =new String[groupTreeNameArray.size()];
+                for(int i=0;i<groupTreeNameArray.size();i++){
+                    JSONObject treeNameJson = groupTreeNameArray.getJSONObject(i);
+                    resultJsonChildString[i]=treeNameJson.getString("treename");
+                }
+                resultJson.element("treename",resultJsonChildString);
                 resultJson.element("status", "1");
                 resultJson.element("error_code", "0");
+                out.print(resultJson);
             }
+            out.flush();
+            out.close();
         }catch (Exception e){
             e.printStackTrace();
         }
