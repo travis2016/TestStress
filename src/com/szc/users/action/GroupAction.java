@@ -73,7 +73,6 @@ public class GroupAction {
             String selectParam = request.getParameter("search");
             String searchGroup =URLDecoder.decode(request.getParameter("groupname"),"utf-8");
             if(selectParam.equals("searchSingerGroup")){
-                logger.info("searchgroupName=="+searchGroup);
                 List groupList = groupServiceDao.SearchGroup(searchGroup);
                 //首先查到对应组有哪些权限id，再根据权限id查权限列表名称
                 JSONArray selectResult = JSONArray.fromObject(groupList);
