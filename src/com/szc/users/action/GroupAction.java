@@ -5,7 +5,8 @@ import com.szc.users.dao.Impl.TreeDaoImpl;
 import com.szc.users.service.Impl.UserCommonManagerServiceImpl;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import java.util.List;
 @Namespace("/group")
 @ParentPackage(value="test")
 public class GroupAction {
+    private final Log logger = LogFactory.getLog(getClass());
     private static final long serialVersionUID = 1L;
     private HttpServletRequest request;
     private HttpServletResponse response;
@@ -66,10 +68,12 @@ public class GroupAction {
             ,interceptorRefs= {@InterceptorRef(value="checkLoginStack")})
     public void selectGroup(){
         try{
+
             out= response.getWriter();
             String selectParam = request.getParameter("search");
             String searchGroup =URLDecoder.decode(request.getParameter("groupname"),"utf-8");
             if(selectParam.equals("searchSingerGroup")){
+                logger.info("searchgroupName=="+searchGroup);
                 List groupList = groupServiceDao.SearchGroup(searchGroup);
                 //首先查到对应组有哪些权限id，再根据权限id查权限列表名称
                 JSONArray selectResult = JSONArray.fromObject(groupList);

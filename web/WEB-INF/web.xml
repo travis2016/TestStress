@@ -22,9 +22,14 @@
  	<!--  添加对spring的支持 -->
  	<context-param> 
 		<param-name>contextConfigLocation</param-name> 
-		<param-value>/WEB-INF/classes/com/szc/resources/applicationContext*.xml</param-value> 
-	</context-param> 
+		<param-value>/WEB-INF/classes/com/szc/resources/applicationContext*.xml</param-value>
+	</context-param>
 
+    <!--  添加对log4j的支持 -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/com/szc/resources/log4j.properties</param-value>
+    </context-param>
     
  
     <filter-mapping>
@@ -35,5 +40,8 @@
     <listener>
     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   	</listener>
- 
+
+   <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
 </web-app>

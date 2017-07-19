@@ -51,7 +51,6 @@ public class TreeDaoImpl extends BaseDaoImpl implements TreeDao {
         String[] treeNameListArray = searchListId.split(",");
         baseSession.setSessionFactory(sessionFactory);
         Session sess = baseSession.getSession();
-        System.out.println("test:"+searchListId);
         String sql = "SELECT treename FROM treeurl AS a WHERE a.treeid IN(:searchListId)";
         Query query = sess.createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
         query.setParameterList("searchListId",treeNameListArray);
