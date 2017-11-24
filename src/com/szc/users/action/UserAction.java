@@ -115,6 +115,8 @@ public class UserAction  extends ActionSupport {
 				}
 				resultJson.element("data", dataJsonArray);
 				out.print(resultJson);
+			}else if(selectParam.equals("searchPersionList")){
+
 			}
 	    	LOG.info("返回json数据了============Test111");
 	    	out.flush();
