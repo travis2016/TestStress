@@ -95,6 +95,7 @@ public class UserAction  extends ActionSupport {
 					dataJsonObject.element("sex", (Integer) user1[1]);
 					dataJsonObject.element("usernickname", (String) user1[2]);
 					dataJsonObject.element("group", (String) user1[3]);
+					dataJsonObject.element("userId", (String) user1[4]);
 					dataJsonArray.add(i, dataJsonObject);
 				}
 				resultJson.element("data", dataJsonArray);

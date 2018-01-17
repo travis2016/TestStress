@@ -104,7 +104,7 @@ public class UserDaoImpl implements UserDao{
 	 */
 	public List selectUser(){
 		Session sess = getSession();
-		String sql="select userName,gender,nickname,groupid from userinfo";
+		String sql="select userName,gender,nickname,groupid,userId from userinfo";
 		SQLQuery query = sess.createSQLQuery(sql);
         List userlist = query.list(); 
         sess.close();
