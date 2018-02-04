@@ -95,10 +95,11 @@ public class UserAction  extends ActionSupport {
 					dataJsonObject.element("sex", (Integer) user1[1]);
 					dataJsonObject.element("usernickname", (String) user1[2]);
 					dataJsonObject.element("group", (String) user1[3]);
-					dataJsonObject.element("userId", (String) user1[4]);
+					dataJsonObject.element("userId", (Integer) user1[4]);
 					dataJsonArray.add(i, dataJsonObject);
 				}
 				resultJson.element("data", dataJsonArray);
+				System.out.print("res::"+resultJson);
 				out.print(resultJson);
 			}else if(selectParam.equals("searchGroupList")){
 				List groupList = groupServiceDao.SearchGroup("");
@@ -122,7 +123,7 @@ public class UserAction  extends ActionSupport {
 	    	LOG.info("返回json数据了============Test111");
 	    	out.flush();
 	    	out.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
