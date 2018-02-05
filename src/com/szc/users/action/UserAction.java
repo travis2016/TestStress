@@ -32,7 +32,6 @@ import com.szc.users.service.Impl.UserServiceImpl;
  */
 //@Controller("UserAction")
 @Scope("prototype")
-@Namespace("/")
 @ParentPackage(value="test")
 public class UserAction  extends ActionSupport {
     
@@ -73,7 +72,7 @@ public class UserAction  extends ActionSupport {
   	
   	
 	//查询用户的数据
-	@Action(value = "/selectAction"
+	@Action(value = "/user/selectAction"
 			,results = { @Result(name = "add", location = "/login.jsp")}
 			,interceptorRefs= {@InterceptorRef(value="checkLoginStack")}) 	
 	public void selectUser() {

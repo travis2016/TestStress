@@ -8,10 +8,10 @@
   	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.serve.static.browserCache" value="false"/>  
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>  
-    <constant name="struts.devMode" value="true"/>  
-    <!-- 指定由spring负责action对象的创建 -->  
+    <constant name="struts.devMode" value="true"/>
+    <!-- 指定由spring负责action对象的创建 -->
     <constant name="struts.objectFactory" value="spring"/> 
-  
+
 	<package  name="test" extends="struts-default">
  		<!-- 将拦截器在全局包中定义，在需要用到的包中指明引用 -->    
         <interceptors>

@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="../../css/Mycss/usepage.css">
     <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
     <script type="text/javascript" src="../../js/mainJs/data.js"></script>
+    <script>
+        $(document).ready(function(){
+            selectUserInfo();
+        });
+
+        function selectUserInfo(){
+            var url = window.location.href+"/selectAction";
+            console.log(url);
+        }
+    </script>
 </head>
 <body>
 hello

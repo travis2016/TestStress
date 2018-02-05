@@ -2,7 +2,12 @@
  *获取用户数据 
  */
 function lodaUserData(searchParam){
-	var url = window.location.href+"/selectAction";
+	var curWwwPath=window.document.location.href;
+	var  pathName=window.document.location.pathname;
+	var pos=curWwwPath.indexOf(pathName);
+	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+	var url = (curWwwPath.substring(0,pos))+projectName+"/user/selectAction";
+	// console.log(url);
 	$.ajax( {
 		type : "get",
 		url : url,
