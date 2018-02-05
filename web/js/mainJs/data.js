@@ -43,7 +43,13 @@ function lodaUserData(searchParam){
 										//$(this).html(data.data[index].group);
 										break;
 									case(4):
-										$(this).html("<button type=\"button\" class=\"btn btn-success\" onclick=\"location.href='edituserperssion.jsp?userid='+data.data[index].userId\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
+										var userids=data.data[index].userId;
+										var pathName =window.location.href;
+										var realPath = pathName.substring(0,pathName.lastIndexOf('/'));
+										var str = realPath+'/edituserperssion.jsp?userid='+userids;
+										// console.log(realPath+'/edituserperssion.jsp?userid=');
+										// var str = "<button type=\"button\" class=\"btn btn-success\" onclick=\""+realPath+'/edituserperssion.jsp?userid='+userids+"\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>";
+										$(this).html("<button type=\"button\" class=\"btn btn-success\" onclick=\"window.open('"+str+"')\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
 										break;
 								  }
 						});

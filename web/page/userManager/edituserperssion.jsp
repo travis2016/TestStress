@@ -18,5 +18,8 @@
 </head>
 <body>
 hello
+
+<button type="button" class="btn btn-success" id = "returnuser">返回</button>
+<button type="button" class="btn btn-success" id = "saveuser">保存</button>
 </body>
 </html>
