@@ -163,6 +163,15 @@ public class UserAction  extends ActionSupport {
 		}
 	}
 
+	@Action(value = "/user/editUserAction")
+	public void editUserInfo(){
+		try{
+			System.out.println("修改");
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
 	public String getUsername() {
 		return username;
 	}

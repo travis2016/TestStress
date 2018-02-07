@@ -21,8 +21,9 @@
         });
 
         function selectUserInfo(){
-            var url = window.location.href+"/selectAction";
+            var url = "<%=basePath%>"+"user/editUserAction";
             console.log(url);
+            console.log("<%=basePath%>");
         }
     </script>
 </head>

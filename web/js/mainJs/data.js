@@ -49,12 +49,12 @@ function lodaUserData(searchParam){
 										break;
 									case(4):
 										var userids=data.data[index].userId;
-										var pathName =window.location.href;
+										/*var pathName =window.location.href;
 										var realPath = pathName.substring(0,pathName.lastIndexOf('/'));
 										var str = realPath+'/edituserperssion.jsp?userid='+userids;
-										// console.log(realPath+'/edituserperssion.jsp?userid=');
-										// var str = "<button type=\"button\" class=\"btn btn-success\" onclick=\""+realPath+'/edituserperssion.jsp?userid='+userids+"\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>";
-										$(this).html("<button type=\"button\" class=\"btn btn-success\" onclick=\"window.open('"+str+"')\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
+										console.log(realPath+'/edituserperssion.jsp?userid=');
+										$(this).html("<button type=\"button\" data-toggle=\"modal\" class=\"btn btn-success\" id=\"editUser\" onclick=\"editUserinfo('"+str+"');\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");*/
+										$(this).html("<button type=\"button\" data-toggle=\"modal\" class=\"btn btn-success\" id=\"editUser\" onclick=\"editUserinfo('"+userids+"');\">修改</button>&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-success\" id = \"deleteUser\">删除</button>");
 										break;
 								  }
 						});

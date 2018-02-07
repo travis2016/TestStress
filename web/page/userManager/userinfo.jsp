@@ -14,6 +14,17 @@ String uname=(String)request.getSession().getAttribute("loginusername");
 <link rel="stylesheet" href="../../css/Mycss/usepage.css">
 <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
 <script type="text/javascript" src="../../js/mainJs/data.js"></script>
+<script LANGUAGE="JavaScript">
+	//打开修改会员信息弹窗的js
+	function editUserinfo(userid){
+		console.log('here');
+		console.log(userid);
+		$('#editUser').click(function(){
+			console.log('here');
+		});
+	}
+
+</script>
 
 </head>
 <body onload="lodaUserData('searchUserList')">
@@ -41,6 +52,12 @@ String uname=(String)request.getSession().getAttribute("loginusername");
     		</tr>
     	</tbody>
 	</table>
-    </div> 
+    </div>
+	<div class="modal fade" id="ajax" role="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			</div>
+		</div>
+	</div>
 </body>
 </html>
