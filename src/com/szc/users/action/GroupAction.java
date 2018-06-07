@@ -68,7 +68,6 @@ public class GroupAction {
             ,interceptorRefs= {@InterceptorRef(value="checkLoginStack")})
     public void selectGroup(){
         try{
-
             out= response.getWriter();
             String selectParam = request.getParameter("search");
             String searchGroup =URLDecoder.decode(request.getParameter("groupname"),"utf-8");
