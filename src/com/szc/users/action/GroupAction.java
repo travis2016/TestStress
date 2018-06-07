@@ -61,7 +61,7 @@ public class GroupAction {
     }
 
     /**
-     * 查询指定组用哪些权限
+     * 查询指定组用哪些权限te
      **/
     @Action(value = "/selectGroupAction"
             ,results = { @Result(name = "add", location = "/login.jsp")}
