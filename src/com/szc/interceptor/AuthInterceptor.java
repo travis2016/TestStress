@@ -25,7 +25,7 @@ public class AuthInterceptor implements Interceptor{
 			System.out.println("有权限::::"+session.get("loginusername"));
 			return invocation.invoke();
 		}
-		System.out.println("执行这里哦");
+		System.out.println("执行这");
 		ActionContext.getContext().put("message", "您无权执行该操作！");
 		ActionContext ctx = invocation.getInvocationContext();
         //获取拦截的Action名称
